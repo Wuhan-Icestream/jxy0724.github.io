@@ -1,5 +1,6 @@
 body{
 	margin: 0 auto;
+	width: 100vw;
 }
 
 #header{
@@ -109,7 +110,6 @@ body{
 }
 
 .img1,.img1_cn,.img2,.img2_cn,.img3,.img3_cn,.img4,.img4_cn{
-	display:block;
 	margin: 0 auto;
 	width: 1300px;
 }
