@@ -31,12 +31,26 @@
 				location = $(this).val();
 			});
 		});
+
+		function scrollToPortfolio(){
+			scrollTo($(".img2_cn"));
+		}
+
+		function scrollToContact(){
+			scrollTo($(".img3_cn"));
+		}
+
+		function scrollTo(jqTarget){
+			$('html, body').animate({
+    			scrollTop: jqTarget.offset().top
+			}, 1000);
+		}
 	</script>
 </head>
 	<body>
 		<div>
-			<div class="header-icon"></div>
 			<div id="header">
+				<div class="header-icon"></div>
 				<div class="menu">
 					<div>
 						<a href="javascript:void(0)">主页</a>
@@ -45,10 +59,10 @@
 						<a href="javascript:void(0)">关于我们</a>
 					</div>
 					<div>
-						<a href="javascript:void(0)">作品集</a>
+						<a href="javascript:scrollToPortfolio()">应用行业</a>
 					</div>
 					<div>
-						<a href="javascript:void(0)">联系</a>
+						<a href="javascript:scrollToContact()">联系</a>
 					</div>
 					<div>
 						<a href="javascript:void(0)">合作伙伴</a>
@@ -63,35 +77,43 @@
 					</div>
 				</div>
 			</div>
-			<video class="video" src="videos/intro.mp4" poster="videos/intro_static.jpg" controls="controls" autoplay="autoplay" width="100%"></video>
+			<video class="video" src="videos/intro.mp4" poster="videos/intro_static.jpg" controls="controls" autoplay="autoplay" loop="loop" width="100%"></video>
 		</div>
 		
-		<div class="img1_cn">
-			<button class="btn1">点击了解更多</button>
+		<div class="img">
+			<div class="img1_cn">
+				<button class="btn1">点击了解更多</button>
+			</div>			
 		</div>
-		<div class="img2_cn">
-			<div class="grid">
-				<div class="griditem">
-					<img src="images/hardwork1_cn.jpg" />
-				</div>
-				<div class="griditem">
-					<img src="images/hardwork2_cn.jpg" />
-				</div>
-				<div class="griditem">
-					<img src="images/hardwork3_cn.jpg" />
-				</div>
-				<div class="griditem">
-					<img src="images/hardwork4_cn.jpg" />
-				</div>
-				<div class="griditem">
-					<img src="images/hardwork5_cn.jpg" />
-				</div>
-				<div class="griditem">
-					<img src="images/hardwork6_cn.jpg" />
+		<div class="img bgcolor1">
+			<div class="img2_cn">
+				<div class="grid">
+					<div class="griditem">
+						<img src="images/hardwork1_cn.jpg" />
+					</div>
+					<div class="griditem">
+						<img src="images/hardwork2_cn.jpg" />
+					</div>
+					<div class="griditem">
+						<img src="images/hardwork3_cn.jpg" />
+					</div>
+					<div class="griditem">
+						<img src="images/hardwork4_cn.jpg" />
+					</div>
+					<div class="griditem">
+						<img src="images/hardwork5_cn.jpg" />
+					</div>
+					<div class="griditem">
+						<img src="images/hardwork6_cn.jpg" />
+					</div>
 				</div>
 			</div>
 		</div>
-		<div class="img3_cn"></div>
-		<div class="img4_cn"></div>
+		<div class="img">
+			<div class="img3_cn"></div>
+		</div>
+		<div class="img bgcolor2">
+			<div class="img4_cn"></div>
+		</div>
 	</body>
 </html>
