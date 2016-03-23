@@ -18,8 +18,9 @@
 				$(this).find("ul").stop().hide(500);
 			});
 
-			var $grid = $('.grid').masonry({
-				itemSelector: '.griditem'
+			var $grid = $('.grid,.grid1').masonry({
+				itemSelector: '.griditem',
+				transitionDuration: 0
 			});
 			$grid.imagesLoaded().progress( function() {
 			  $grid.masonry('layout');
@@ -30,6 +31,19 @@
 			$("#langs").change(function(){
 				location = $(this).val();
 			});
+
+			$(".grid1 img").mouseover(function(){
+				this.src = this.src.split(".")[0]+"_cn_hover.png";
+			}).mouseout(function(){
+				this.src = this.src.split("_cn_hover")[0]+".png";
+			}).on("click",function(){
+				$("#dialog").show();
+				$("#dialog img").first().attr("src",this.src.split("_hover")[0]+"_pop.png");
+			});
+
+			$("#dialog img:eq(1)").on("click",function(){
+				$("#dialog").hide();
+			});
 		});
 
 		function scrollToPortfolio(){
@@ -38,6 +52,10 @@
 
 		function scrollToContact(){
 			scrollTo($(".img3_cn"));
+		}
+
+		function scrollToPhotofolio(){
+			scrollTo($(".img5_cn"));
 		}
 
 		function scrollTo(jqTarget){
@@ -62,10 +80,10 @@
 						<a href="javascript:scrollToPortfolio()">应用行业</a>
 					</div>
 					<div>
-						<a href="javascript:scrollToContact()">联系</a>
+						<a href="javascript:scrollToPhotofolio()">作品集</a>
 					</div>
 					<div>
-						<a href="javascript:void(0)">合作伙伴</a>
+						<a href="javascript:scrollToContact()">联系</a>
 					</div>
 					<div class="langDiv">
 						简体中文
@@ -109,11 +127,54 @@
 				</div>
 			</div>
 		</div>
+		<div class="img bgcolor1">
+			<div class="img5_cn">
+				<div class="grid1">
+					<div class="griditem">
+						<img src="images/photofolio1.png" />
+					</div>
+					<div class="griditem">
+						<img src="images/photofolio2.png" />
+					</div>
+					<div class="griditem">
+						<img src="images/photofolio3.png" />
+					</div>
+					<div class="griditem">
+						<img src="images/photofolio4.png" />
+					</div>
+					<div class="griditem">
+						<img src="images/photofolio5.png" />
+					</div>
+					<div class="griditem">
+						<img src="images/photofolio6.png" />
+					</div>
+					<div class="griditem">
+						<img src="images/photofolio7.png" />
+					</div>
+					<div class="griditem">
+						<img src="images/photofolio8.png" />
+					</div>
+					<div class="griditem">
+						<img src="images/photofolio9.png" />
+					</div>
+					<div class="griditem">
+						<img src="images/photofolio10.png" />
+					</div>
+					<div class="griditem">
+						<img src="images/photofolio11.png" />
+					</div>
+				</div>
+			</div>
+		</div>
 		<div class="img">
 			<div class="img3_cn"></div>
 		</div>
 		<div class="img bgcolor2">
 			<div class="img4_cn"></div>
+		</div>
+		<div id="dialog">
+			<img>
+			<img class="closeBtn" src="images/close.png">
 		</div>
 	</body>
 </html>

@@ -2,7 +2,6 @@
 <html>
 <head>
 	<meta http-equiv = "content-type" content = "text/html;charset=UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 	<title>IceStream</title>
 	<link rel="shortcut icon" href="images/favicon.ico" >
 	<link rel="stylesheet" type="text/css" href="css/index.css">
@@ -19,8 +18,9 @@
 				$(this).find("ul").stop().hide(500);
 			});
 
-			var $grid = $('.grid').masonry({
-				itemSelector: '.griditem'
+			var $grid = $('.grid,.grid1').masonry({
+				itemSelector: '.griditem',
+				transitionDuration: 0
 			});
 			$grid.imagesLoaded().progress( function() {
 			  $grid.masonry('layout');
@@ -31,6 +31,19 @@
 			$("#langs").change(function(){
 				location = $(this).val();
 			});
+
+			$(".grid1 img").mouseover(function(){
+				this.src = this.src.split(".")[0]+"_hover.png";
+			}).mouseout(function(){
+				this.src = this.src.split("_hover")[0]+".png";
+			}).on("click",function(){
+				$("#dialog").show();
+				$("#dialog img").first().attr("src",this.src.split("_hover")[0]+"_pop.png");
+			});
+
+			$("#dialog img:eq(1)").on("click",function(){
+				$("#dialog").hide();
+			});
 		});
 
 		function scrollToPortfolio(){
@@ -39,6 +52,10 @@
 
 		function scrollToContact(){
 			scrollTo($(".img3"));
+		}
+
+		function scrollToPhotofolio(){
+			scrollTo($(".img5"));
 		}
 
 		function scrollTo(jqTarget){
@@ -63,10 +80,10 @@
 						<a href="javascript:scrollToPortfolio()">INDUSTRIES</a>
 					</div>
 					<div>
-						<a href="javascript:scrollToContact()">CONTACT</a>
+						<a href="javascript:scrollToPhotofolio()">PHOTOFOLIO</a>
 					</div>
 					<div>
-						<a href="javascript:void(0)">PARTNER</a>
+						<a href="javascript:scrollToContact()">CONTACT</a>
 					</div>
 					<div class="langDiv">
 						English
@@ -110,11 +127,54 @@
 				</div>
 			</div>
 		</div>
+		<div class="img bgcolor1">
+			<div class="img5">
+				<div class="grid1">
+					<div class="griditem">
+						<img src="images/photofolio1.png" />
+					</div>
+					<div class="griditem">
+						<img src="images/photofolio2.png" />
+					</div>
+					<div class="griditem">
+						<img src="images/photofolio3.png" />
+					</div>
+					<div class="griditem">
+						<img src="images/photofolio4.png" />
+					</div>
+					<div class="griditem">
+						<img src="images/photofolio5.png" />
+					</div>
+					<div class="griditem">
+						<img src="images/photofolio6.png" />
+					</div>
+					<div class="griditem">
+						<img src="images/photofolio7.png" />
+					</div>
+					<div class="griditem">
+						<img src="images/photofolio8.png" />
+					</div>
+					<div class="griditem">
+						<img src="images/photofolio9.png" />
+					</div>
+					<div class="griditem">
+						<img src="images/photofolio10.png" />
+					</div>
+					<div class="griditem">
+						<img src="images/photofolio11.png" />
+					</div>
+				</div>
+			</div>
+		</div>
 		<div class="img">
 			<div class="img3"></div>
 		</div>
 		<div class="img bgcolor2">
 			<div class="img4"></div>
+		</div>
+		<div id="dialog">
+			<img>
+			<img class="closeBtn" src="images/close.png">
 		</div>
 	</body>
 </html>
