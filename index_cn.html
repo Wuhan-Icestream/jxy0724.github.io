@@ -33,9 +33,9 @@
 			});
 
 			$(".grid1 img").mouseover(function(){
-				this.src = this.src.split(".png")[0]+"_cn_hover.png";
+				this.src = this.src.split(".png")[0]+"_cn_hover.jpg";
 			}).mouseout(function(){
-				this.src = this.src.split("_cn_hover.png")[0]+".png";
+				this.src = this.src.split("_cn_hover.jpg")[0]+".png";
 			}).on("click",function(){
 				$("#dialog").show();
 				$("#dialog img").first().attr("src",this.src.split("_hover")[0]+"_pop.png");
